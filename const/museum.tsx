@@ -1,3 +1,6 @@
+{
+  /* eslint-disable max-len */
+}
 import { CardList } from "@/components/CardList";
 import { TextContent } from "@/components/TextContent";
 
@@ -63,30 +66,30 @@ const history = [
   "В современной экспозиции представлены обширная учебная коллекция тонированных гипсовых слепков с произведений Античности, Средних веков и эпохи Возрождения, а также собрание подлинных произведений живописи, скульптуры, графики и декоративно-прикладного искусства.",
   "В залах первого этажа Главного здания представлены: произведения искусства Древнего Египта, Античности, собрание европейской живописи VIII–XVIII веков; два зала – Итальянский и Греческий дворики – занимают слепки. На втором этаже Главного здания в залах размещены слепки произведений искусства Древней Греции, Рима, Средних веков и Возрождения.",
   "В начале 2017 года музей определил новое направление своей деятельности – Пушкинский XXI, – ориентированное на современное российское и западное искусство во всех аспектах – выставочном, образовательном и исследовательском. Таким образом, ГМИИ им. А.С. Пушкина представляет собой открытую, интерактивную сцену, демонстрирующую развитие мировой культуры с древности до наших дней, живое, знакомое с детства пространство для получения знаний и общения.",
-]
+];
 
 export const tabs = [
   {
-    "tabId": "headingBuildings",
-    "ariaControls": "section1",
-    "tabTitle": "Здания",
+    tabId: "headingBuildings",
+    ariaControls: "section1",
+    tabTitle: "Здания",
   },
   {
-    "tabId": "headingHistory",
-    "ariaControls": "section2",
-    "tabTitle": "История",
+    tabId: "headingHistory",
+    ariaControls: "section2",
+    tabTitle: "История",
   },
-]
+];
 
 export const tabsContent = [
   {
     id: "section1",
     ariaLabelledBy: "headingBuildings",
-    children: <CardList list={buildings} />
+    children: <CardList list={buildings} />,
   },
   {
     id: "section2",
     ariaLabelledBy: "headingHistory",
-    children: <TextContent text={history} link="/" linkText="Читать далее" />
+    children: <TextContent text={history} link="/" linkText="Читать далее" />,
   },
-]
+];

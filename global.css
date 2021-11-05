@@ -11,6 +11,10 @@ html.overflow body {
   overflow: hidden;
 }
 
+.container {
+  padding: 0 15px;
+}
+
 .visually-hidden {
   @apply absolute w-px h-px p-0 overflow-hidden border-0;
   margin: -1px;
@@ -22,23 +26,13 @@ html.overflow body {
 }
 
 .swiper-container {
-  padding: 0 50px !important;
-  margin-left: -50px !important;
-  margin-right: -50px !important;
   position: relative;
 }
 
-.swiper-slide {
-  visibility: hidden;
-}
-
-.swiper-slide.swiper-slide-active {
-  visibility: visible;
-}
-
 .swiper-button-prev, .swiper-button-next {
-  @apply absolute w-10 h-20 m-0 cursor-pointer z-10 items-center justify-center;
+  @apply absolute w-10 h-20 m-0 cursor-pointer z-10 items-center justify-center bg-white;
   background-image: url("/slider-arrow.svg");
+  background-size: 80%;
   background-position: center center;
   background-repeat: no-repeat;
   top: 50%;
@@ -46,10 +40,10 @@ html.overflow body {
 }
 
 .swiper-button-prev {
-  right: calc(100% - 40px);
+  left: 4px;
 }
 
 .swiper-button-next {
-  left: calc(100% - 40px);
+  right: 4px;
   transform: translateY(-50%) scaleX(-1);
 }

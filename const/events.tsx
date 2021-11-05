@@ -77,36 +77,36 @@ export const tomorrowEvents = [
 
 export const tabs = [
   {
-    "tabId": "heading1",
-    "ariaControls": "panel1",
-    "tabTitle": "Все",
+    tabId: "heading1",
+    ariaControls: "panel1",
+    tabTitle: "Все",
   },
   {
-    "tabId": "heading2",
-    "ariaControls": "panel2",
-    "tabTitle": "Сегодня",
+    tabId: "heading2",
+    ariaControls: "panel2",
+    tabTitle: "Сегодня",
   },
   {
-    "tabId": "heading3",
-    "ariaControls": "panel3",
-    "tabTitle": "Завтра",
-  }
-]
+    tabId: "heading3",
+    ariaControls: "panel3",
+    tabTitle: "Завтра",
+  },
+];
 
 export const tabsContent = [
   {
     id: "panel1",
     ariaLabelledBy: "heading1",
-    children: <CardList list={allEvents} />
+    children: <CardList list={allEvents} />,
   },
   {
     id: "panel2",
     ariaLabelledBy: "heading2",
-    children: <CardList list={todayEvents} />
+    children: <CardList list={todayEvents} />,
   },
   {
     id: "panel3",
     ariaLabelledBy: "heading3",
-    children: <CardList list={tomorrowEvents} />
-  }
-]
+    children: <CardList list={tomorrowEvents} />,
+  },
+];

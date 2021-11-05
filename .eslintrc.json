@@ -9,9 +9,14 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
   "rules": {
+    "react/prop-types": "off",
     "quotes": ["error", "double"],
     "max-len": ["error", { "code": 120 }],
     "no-console": ["error", { "allow": ["warn", "error", "info"] }],

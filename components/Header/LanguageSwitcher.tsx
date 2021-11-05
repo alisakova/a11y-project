@@ -1,6 +1,6 @@
 export const LanguageSwitcher = () => {
   return (
-    <nav aria-label="Выбрать язык">
+    <nav aria-label="Выбрать язык" className="sm:ml-auto">
       <span className="rounded-4px p-4 bg-lightPurple mr-2 border border-lightPurple text-xl">
         <span aria-hidden="true">RU</span>
         <span className="visually-hidden">Русский</span>

@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { Tab } from "@/components/Tabs/Tab";
 import { arrowKeys, directions } from "./const";
@@ -24,6 +24,7 @@ interface Props {
 export const Tabs: FunctionComponent<Props> = ({ tabsListAriaLabel = "", tabs = [], tabsContent = [] }) => {
   const [activeTabId, setActiveTabId] = useState(tabs[0].tabId);
   const [focusedTabId, setFocusedTabId] = useState(tabs[0].tabId);
+  const tabList = useRef<HTMLDivElement>(null);
 
   const handleTab = (tabId: string) => {
     setActiveTabId(tabId);
@@ -43,7 +44,7 @@ export const Tabs: FunctionComponent<Props> = ({ tabsListAriaLabel = "", tabs = 
       event.preventDefault();
       event.stopPropagation();
       const key = event.keyCode;
-      const currentTabId = event?.target?.id;
+      const currentTabId = (event?.target as Element)?.id;
       if (key === arrowKeys.left || key === arrowKeys.right) {
         const currentTabIndex = tabs.findIndex(({ tabId }) => tabId === currentTabId);
         const nextFocusedTab = tabs[currentTabIndex + directions[key]]?.tabId;
@@ -61,18 +62,23 @@ export const Tabs: FunctionComponent<Props> = ({ tabsListAriaLabel = "", tabs = 
         setActiveTabId(currentTabId)
       }
     }
-    document.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("keyup", handleKeyUp);
+
+    if (tabList?.current) {
+      tabList.current.addEventListener("keydown", handleKeyDown);
+      tabList.current.addEventListener("keyup", handleKeyUp);
+    }
 
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("keyup", handleKeyUp);
+      if (tabList?.current) {
+        tabList.current.removeEventListener("keydown", handleKeyDown);
+        tabList.current.removeEventListener("keyup", handleKeyUp);
+      }
     }
   }, []);
 
   return (
     <>
-      <div role="tablist" className="flex flex-wrap items-center mb-11" aria-label={tabsListAriaLabel}>
+      <div ref={tabList} role="tablist" className="flex flex-wrap items-center mb-11" aria-label={tabsListAriaLabel}>
         {tabs.map(({ tabId, ariaControls, tabTitle }) => (
           <Tab key={tabId} focusedTabId={focusedTabId} activeTabId={activeTabId} handleTab={handleTab} tabId={tabId} title={tabTitle} ariaControls={ariaControls} />
         ))}

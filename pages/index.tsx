@@ -24,13 +24,14 @@ const Home = () => {
           Государственный музей изобразительных искусств имени А.С.Пушкина
         </title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=2"
+        />
       </Head>
 
       <SkipLink />
       <Header />
-      {/*TODO: */}
-      {/*1) add h1*/}
-      {/*2) add lang attribute*/}
       <main className="container m-auto" id="content">
         <MainNav />
         <Visitors />

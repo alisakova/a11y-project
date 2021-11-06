@@ -26,6 +26,9 @@ module.exports = {
       maxHeight: {
         "148px": "148px",
       },
+      outline: {
+        blue: ["2px solid #0000ff", "2px"],
+      },
       zIndex: {
         1001: "1001",
         1002: "1002",

@@ -104,7 +104,6 @@ export const SubscribeForm = () => {
       <div className="mt-4">
         <div className="flex items-center">
           <input
-            aria-checked={isAgreed}
             aria-describedby="agreement-error"
             aria-invalid={!!errors.agreement}
             checked={isAgreed}

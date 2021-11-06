@@ -3,7 +3,7 @@ import { EventsSlider } from "@/components/EventsSlider";
 
 export const Visitors = () => {
   return (
-    <section id="visitors" className="mb-28">
+    <div id="visitors" className="mb-28">
       <EventsSlider />
       <nav aria-label="Разделы сайта" className="-mb-4">
         <Button
@@ -18,6 +18,6 @@ export const Visitors = () => {
         />
         <Button link="/" text="Онлайн-магазин" className="inline-block mb-4" />
       </nav>
-    </section>
+    </div>
   );
 };

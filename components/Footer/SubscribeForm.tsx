@@ -58,7 +58,7 @@ export const SubscribeForm = () => {
   };
 
   return (
-    <form action="">
+    <form>
       {isFormSent && (
         <SuccessfulAlert text="Вы успешно подписались на новости" />
       )}
@@ -93,9 +93,13 @@ export const SubscribeForm = () => {
         <span id="email-pattern" className="text-gray-800">
           Пример заполнения: test@mail.ru
         </span>
-        {errors.email && (
-          <ErrorMessage errorId="email-error" errorText={errors.email} />
-        )}
+        <ErrorMessage
+          className={classNames({
+            hidden: !errors.email,
+          })}
+          errorId="email-error"
+          errorText={errors.email || ""}
+        />
       </div>
       <div className="mt-4">
         <div className="flex items-center">
@@ -114,12 +118,13 @@ export const SubscribeForm = () => {
             Согласен на обработку персональных данных
           </label>
         </div>
-        {errors.agreement && (
-          <ErrorMessage
-            errorId="agreement-error"
-            errorText={errors.agreement}
-          />
-        )}
+        <ErrorMessage
+          className={classNames({
+            hidden: !errors.agreement,
+          })}
+          errorId="agreement-error"
+          errorText={errors.agreement || ""}
+        />
       </div>
     </form>
   );

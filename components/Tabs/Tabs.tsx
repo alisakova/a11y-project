@@ -109,7 +109,7 @@ export const Tabs: FunctionComponent<Props> = ({
         ))}
       </div>
       {tabsContent.map(({ id, ariaLabelledBy, children }) => (
-        <section
+        <div
           key={id}
           id={id}
           aria-labelledby={ariaLabelledBy}
@@ -119,7 +119,7 @@ export const Tabs: FunctionComponent<Props> = ({
           })}
         >
           {children}
-        </section>
+        </div>
       ))}
     </>
   );

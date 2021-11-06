@@ -91,7 +91,7 @@ export const Login = () => {
   };
 
   return (
-    <form action="">
+    <form>
       <SectionTitle title="Вход" />
       {isFormSent && (
         <SuccessfulAlert text="Вы успешно залогинились! Можете закрыть модальное окно" />

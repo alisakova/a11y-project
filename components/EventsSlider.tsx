@@ -3,6 +3,7 @@ import { Button } from "@/components/Button";
 import SwiperCore, { A11y, Navigation } from "swiper";
 import { useRef } from "react";
 import "swiper/swiper.min.css";
+import { NavigationOptions } from "swiper/types";
 
 SwiperCore.use([Navigation, A11y]);
 
@@ -23,8 +24,12 @@ export const EventsSlider = () => {
         prevEl: navigationPrevRef.current,
       }}
       onInit={(swiper) => {
-        swiper.params.navigation.prevEl = navigationPrevRef.current;
-        swiper.params.navigation.nextEl = navigationNextRef.current;
+        if (swiper?.params?.navigation) {
+          (swiper.params.navigation as NavigationOptions).prevEl =
+            navigationPrevRef.current;
+          (swiper.params.navigation as NavigationOptions).nextEl =
+            navigationNextRef.current;
+        }
         swiper.navigation.update();
       }}
       loop

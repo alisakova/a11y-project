@@ -7,7 +7,12 @@ interface Props {
   modalTitle?: string;
 }
 
-export const Modal: FunctionComponent<Props> = ({ setIsVisible, modalTitle, children, openModalButton }) => {
+export const Modal: FunctionComponent<Props> = ({
+  setIsVisible,
+  modalTitle,
+  children,
+  openModalButton,
+}) => {
   const modal = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,33 +30,40 @@ export const Modal: FunctionComponent<Props> = ({ setIsVisible, modalTitle, chil
       }
     };
     const handleKeyDown = (event: KeyboardEvent) => {
-      const  focusableElements =
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-      const modal = document.querySelector('#modal'); // select the modal by it's id
+      const focusableElements =
+        "button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])";
+      const modal = document.querySelector("#modal"); // select the modal by it's id
       if (modal) {
-        const firstFocusableElement = modal.querySelectorAll(focusableElements)[0] as HTMLElement; // get first element to be focused inside modal
+        const firstFocusableElement = modal.querySelectorAll(
+          focusableElements
+        )[0] as HTMLElement; // get first element to be focused inside modal
         const focusableContent = modal.querySelectorAll(focusableElements);
-        const lastFocusableElement = focusableContent[focusableContent.length - 1] as HTMLElement; // get last element to be focused inside modal
+        const lastFocusableElement = focusableContent[
+          focusableContent.length - 1
+        ] as HTMLElement; // get last element to be focused inside modal
 
-        let isTabPressed = event.key === 'Tab' || event.keyCode === 9;
+        const isTabPressed = event.key === "Tab" || event.keyCode === 9;
 
         if (!isTabPressed) {
           return;
         }
 
-        if (event.shiftKey) { // if shift key pressed for shift + tab combination
+        if (event.shiftKey) {
+          // if shift key pressed for shift + tab combination
           if (document.activeElement === firstFocusableElement) {
             lastFocusableElement?.focus();
             event.preventDefault();
           }
-        } else { // if tab key is pressed
-          if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+        } else {
+          // if tab key is pressed
+          if (document.activeElement === lastFocusableElement) {
+            // if focused has reached to last focusable element then focus first focusable element after pressing tab
             firstFocusableElement?.focus();
             event.preventDefault();
           }
         }
       }
-    }
+    };
     document.addEventListener("keyup", handleKeyUp);
     document.addEventListener("keydown", handleKeyDown);
 

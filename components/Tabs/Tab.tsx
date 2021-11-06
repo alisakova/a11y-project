@@ -10,7 +10,14 @@ interface Props {
   focusedTabId: string;
 }
 
-export const Tab: FunctionComponent<Props> = ({ tabId, ariaControls, title, handleTab, activeTabId, focusedTabId }) => {
+export const Tab: FunctionComponent<Props> = ({
+  tabId,
+  ariaControls,
+  title,
+  handleTab,
+  activeTabId,
+  focusedTabId,
+}) => {
   const tabRef = useRef<HTMLButtonElement>(null);
   const didMount = useRef(false);
 
@@ -36,14 +43,16 @@ export const Tab: FunctionComponent<Props> = ({ tabId, ariaControls, title, hand
       aria-controls={ariaControls}
       tabIndex={tabId === activeTabId ? 0 : -1}
       className={classNames("min-w-160px p-4", {
-        "rounded-4px bg-lightPurple": activeTabId === tabId
+        "rounded-4px bg-lightPurple": activeTabId === tabId,
       })}
     >
-       <span className={classNames({
-              "border-b hover:border-transparent": activeTabId !== tabId
-            })}>
-              {title}
-       </span>
+      <span
+        className={classNames({
+          "border-b hover:border-transparent": activeTabId !== tabId,
+        })}
+      >
+        {title}
+      </span>
     </button>
   );
 };

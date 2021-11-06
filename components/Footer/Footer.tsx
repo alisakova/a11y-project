@@ -1,42 +1,6 @@
-import { SubscribeForm } from "@/components/SubscribeForm";
-import { FunctionComponent } from "react";
-
-interface FooterLinkProps {
-  title: string;
-  link: string;
-}
-
-const FooterLink: FunctionComponent<FooterLinkProps> = ({
-  title,
-  link = "/",
-}) => {
-  return (
-    <a
-      href={link}
-      className="text-blue-800 mb-4 last:mb-0"
-    >
-      <span className='border-b hover:border-transparent'>{title}</span>
-    </a>
-  );
-};
-
-interface SocialLinkProps {
-  iconSrc: string;
-  link: string;
-  iconAlt: string;
-}
-
-const SocialLink: FunctionComponent<SocialLinkProps> = ({
-  link,
-  iconSrc,
-  iconAlt,
-}) => {
-  return (
-    <a href={link} className="mr-6 last:mr-0 ">
-      <img src={iconSrc} alt={iconAlt} role="presentation" />
-    </a>
-  );
-};
+import { SubscribeForm } from "@/components/Footer/SubscribeForm";
+import { FooterLink } from "@/components/Footer/FooterLink";
+import { SocialLink } from "@/components/Footer/SocialLink";
 
 export const Footer = () => {
   return (

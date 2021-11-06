@@ -4,9 +4,10 @@ import { FunctionComponent, RefObject, useEffect, useRef } from "react";
 interface Props {
   setIsVisible: (visible: boolean) => void;
   openModalButton: RefObject<HTMLButtonElement> | null;
+  modalTitle?: string;
 }
 
-export const Modal: FunctionComponent<Props> = ({ setIsVisible, children, openModalButton }) => {
+export const Modal: FunctionComponent<Props> = ({ setIsVisible, modalTitle, children, openModalButton }) => {
   const modal = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -76,7 +77,7 @@ export const Modal: FunctionComponent<Props> = ({ setIsVisible, children, openMo
           role="dialog"
           className="max-w-3xl w-full relative z-1002 bg-white py-[70px] px-10 md:px-[150px]"
         >
-          <SectionTitle title="Вход" />
+          {modalTitle && <SectionTitle title={modalTitle} />}
           <button
             onClick={() => setIsVisible(false)}
             aria-label="Закрыть"

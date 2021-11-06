@@ -12,7 +12,7 @@ import {
 } from "../const/museum";
 import { Video } from "@/components/Video";
 import { Lectures } from "@/components/Lectures";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/Footer/Footer";
 import { Visitors } from "@/components/Visitors";
 import { SkipLink } from "@/components/SkipLink";
 

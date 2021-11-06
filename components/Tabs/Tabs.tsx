@@ -1,7 +1,7 @@
 import { FunctionComponent, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { Tab } from "@/components/Tabs/Tab";
-import { arrowKeys, directions } from "./const";
+import { arrowKeys, directions } from "../../const/const";
 
 export type Tab = {
   tabId: string;

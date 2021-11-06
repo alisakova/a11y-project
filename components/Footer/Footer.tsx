@@ -25,16 +25,19 @@ export const Footer = () => {
               link="mailto:pushkin@mail.ru"
               iconAlt="Почта"
               iconSrc="/social/mail.svg"
+              ariaLabel="Связаться по почте"
             />
             <SocialLink
               link="https://t.me/theartsmuseum"
               iconAlt="Телеграм"
               iconSrc="/social/telegram.svg"
+              ariaLabel="Телеграм"
             />
             <SocialLink
               link="https://www.facebook.com/theartsmuseum/"
               iconAlt="Facebook"
               iconSrc="/social/facebook.svg"
+              ariaLabel="Facebook"
             />
           </div>
         </div>

@@ -32,6 +32,7 @@ export const Header = () => {
               ref={openModalButton}
               className="ml-10"
               aria-haspopup="dialog"
+              aria-label="Открыть форму входа"
               onClick={() => setIsModalVisible(true)}
             >
               <img src="/user.svg" alt="" />

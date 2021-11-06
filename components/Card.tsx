@@ -1,4 +1,22 @@
-export const Card = ({ card = {} }) => {
+import { FunctionComponent } from "react";
+
+export type Card = {
+  title: string;
+  subtitle?: string;
+  text: string;
+  img: string;
+  imgAlt: string;
+  titleLink?: string;
+  link: string;
+  linkText: string;
+  ariaLabelForLink?: string;
+};
+
+interface Props {
+  card: Card;
+}
+
+export const Card: FunctionComponent<Props> = ({ card }) => {
   const {
     title,
     subtitle,
@@ -10,8 +28,9 @@ export const Card = ({ card = {} }) => {
     linkText,
     ariaLabelForLink,
   } = card;
+
   return (
-    <div className="mb-5 sm:mb-0 sm:w-1/2 lg:w-1/3 sm:p-5">
+    <li className="w-full mb-5 flex flex-col items-start sm:mb-0 sm:w-1/2 lg:w-1/3 sm:p-5">
       <img
         src={img}
         alt={imgAlt}
@@ -32,13 +51,10 @@ export const Card = ({ card = {} }) => {
       <a
         href={link}
         aria-label={ariaLabelForLink}
-        className="border-b text-blue-800 hover:border-transparent"
+        className="mt-auto border-b text-blue-800 hover:border-transparent"
       >
         {linkText}
       </a>
-    </div>
+    </li>
   );
 };
-
-// TODO:
-// 1) фокус на всю карточку

@@ -2,7 +2,7 @@ import { Card } from "@/components/Card";
 import { FunctionComponent } from "react";
 
 interface Props {
-  list: any[];
+  list: Card[];
 }
 
 export const CardList: FunctionComponent<Props> = ({ list = [] }) => {

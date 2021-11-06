@@ -1,4 +1,16 @@
-export const TextContent = ({ text, link, linkText }) => {
+import { FunctionComponent } from "react";
+
+interface Props {
+  text: string[];
+  link: string;
+  linkText: string;
+}
+
+export const TextContent: FunctionComponent<Props> = ({
+  text,
+  link,
+  linkText,
+}) => {
   return (
     <>
       {text.map((paragraph, index) => (

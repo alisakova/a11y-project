@@ -83,7 +83,9 @@ export const SubscribeForm = () => {
         <Alert variant="success">Вы успешно подписались на новости</Alert>
       )}
       {(errors.email || errors.agreement) && (
-        <Alert variant="error">Форма не была отправлена</Alert>
+        <Alert variant="error">
+          Форма не была отправлена, есть ошибки в полях
+        </Alert>
       )}
       <div className="grid grid-cols-[min-content,1fr]">
         <div>

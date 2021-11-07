@@ -43,7 +43,9 @@ export const Login = () => {
         </Alert>
       )}
       {(errors.login || errors.password) && (
-        <Alert variant="error">Форма не была отправлена</Alert>
+        <Alert variant="error">
+          Форма не была отправлена, есть ошибки в полях
+        </Alert>
       )}
       <div className="mb-10">
         <Input

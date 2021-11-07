@@ -2,7 +2,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 
 export const Video = () => {
   return (
-    <section id="video" className="mb-28">
+    <section id="online" className="mb-28">
       <SectionTitle title="Онлайн-трансляции" />
       <div className="padding-bottom-16-9 relative w-full">
         <iframe

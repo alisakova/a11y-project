@@ -9,8 +9,8 @@ export const LanguageSwitcher = () => {
         href="/"
         hrefLang="en"
         aria-label="Английский язык"
-        //eslint-disable-next-line max-len
-        className="rounded-4px p-4 bg-lightPurple border border-lightPurple hover:bg-indigo-300 focus:bg-mainPurple focus:text-white group text-xl"
+        className="rounded-4px p-4 bg-lightPurple border border-lightPurple group text-xl
+        hover:bg-indigo-300 focus:bg-mainPurple focus:text-white"
       >
         <span className="border-b border-black group-focus:border-white">
           EN

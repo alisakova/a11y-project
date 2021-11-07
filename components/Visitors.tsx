@@ -21,6 +21,7 @@ export const Visitors = () => {
         <Button
           link="/"
           text="Купить билет"
+          ariaLabel="Купить билет в музей"
           className="mr-10 inline-block mb-4"
         />
         <Button

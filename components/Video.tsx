@@ -8,7 +8,7 @@ export const Video = () => {
         <iframe
           className="w-full h-full absolute top-0 left-0"
           src="https://www.youtube.com/embed/6xir8DfGzxY"
-          title="YouTube video player"
+          title="Выставка 'Бывают странные сближенья...'"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />

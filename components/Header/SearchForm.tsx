@@ -24,6 +24,18 @@ export const SearchForm = () => {
     };
   }, []);
 
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    if (isSearchRequestSent) {
+      timer = setTimeout(() => {
+        setSearchRequestSent(false);
+      }, 5000);
+    }
+    return () => {
+      timer && clearTimeout(timer);
+    };
+  }, [isSearchRequestSent]);
+
   return (
     <form role="search" className="mr-4 relative mb-5 sm:mb-0">
       {isSearchRequestSent && (
@@ -33,8 +45,8 @@ export const SearchForm = () => {
         </div>
       )}
       <input
-        // eslint-disable-next-line max-len
-        className="w-full pl-4 pr-10 min-w-295px rounded-26px h-12 bg-inputBg border border-mainPurple focus:outline-blue"
+        className="w-full pl-4 pr-10 min-w-295px rounded-26px h-12 bg-inputBg
+        border border-mainPurple focus:outline-blue"
         type="search"
         placeholder="Введите запрос..."
         aria-label="Поисковый запрос"

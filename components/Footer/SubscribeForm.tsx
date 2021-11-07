@@ -108,7 +108,7 @@ export const SubscribeForm = () => {
             )}
             autoComplete="email"
           />
-          <span id="email-pattern" className="text-gray-800">
+          <span id="email-pattern" className="text-gray-800" aria-hidden={true}>
             Пример заполнения: test@mail.ru
           </span>
         </div>
@@ -148,8 +148,8 @@ export const SubscribeForm = () => {
           onClick={handleSubmitButton}
           type="submit"
           text="Подписаться"
-          //eslint-disable-next-line max-len
-          className="w-full mt-4 sm:mt-0 sm:w-auto focus:outline-blue row-start-1 row-end-2 col-start-2 col-end-3 justify-self-start self-center"
+          className="w-full mt-4 sm:mt-0 sm:w-auto focus:outline-blue row-start-1 row-end-2 col-start-2 col-end-3
+          justify-self-start self-center"
         />
       </div>
     </form>

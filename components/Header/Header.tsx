@@ -11,17 +11,11 @@ export const Header = () => {
   return (
     <header className="py-10">
       <div className="container mx-auto flex flex-wrap items-center justify-between lg:flex-row">
-        <a
-          href="/"
-          className="block mr-4 mb-4 lg:mb-0"
-          aria-label="Перейти на главную страницу"
-        >
-          <img
-            className="max-w-13rem"
-            src="/logo.png"
-            alt="Логотип государственного музея изобразительных искусств имени А.С. Пушкина"
-          />
-        </a>
+        <img
+          className="max-w-13rem"
+          src="/logo.png"
+          alt="Логотип государственного музея изобразительных искусств имени А.С. Пушкина"
+        />
         <div className="flex flex-col sm:items-center sm:flex-row flex-wrap w-full lg:w-auto">
           <SearchForm />
           <div className="flex items-center">

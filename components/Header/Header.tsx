@@ -12,7 +12,7 @@ export const Header = () => {
     <header className="py-10">
       <div className="container mx-auto flex flex-wrap items-center justify-between lg:flex-row">
         <img
-          className="max-w-13rem"
+          className="max-w-13rem mb-4 lg:mb-0"
           src="/logo.png"
           alt="Логотип государственного музея изобразительных искусств имени А.С. Пушкина"
         />

@@ -18,7 +18,7 @@ export const ErrorMessage: FunctionComponent<Props> = ({
       id={errorId}
       className={classNames("text-red-600 flex items-center mt-2", className)}
     >
-      <ErrorIcon className="w-4 h-4 mr-2" />
+      <ErrorIcon className="min-w-[1rem] w-4 h-4 mr-2" />
       {errorText}
     </span>
   );

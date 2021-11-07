@@ -79,7 +79,7 @@ export const Login = () => {
         onClick={handleSubmitClick}
         type="submit"
         text="Вход"
-        className="w-full text-xl bg-lightPurple text-black hover:bg-indigo-300"
+        className="w-full text-xl bg-lightPurple text-black hover:!bg-indigo-300"
       />
     </form>
   );

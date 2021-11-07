@@ -87,7 +87,7 @@ export const SubscribeForm = () => {
           Форма не была отправлена, есть ошибки в полях
         </Alert>
       )}
-      <div className="grid grid-cols-[min-content,1fr]">
+      <div className="sm:grid sm:grid-cols-[min-content,1fr]">
         <div>
           <label htmlFor="email" className="block mb-2 flex items-center">
             Email
@@ -150,8 +150,8 @@ export const SubscribeForm = () => {
           onClick={handleSubmitButton}
           type="submit"
           text="Подписаться"
-          className="w-full mt-4 sm:mt-0 sm:w-auto focus:outline-blue row-start-1 row-end-2 col-start-2 col-end-3
-          justify-self-start self-center"
+          className="w-full mt-4 sm:mt-0 sm:w-auto focus:outline-blue justify-self-start self-center
+          sm:row-start-1 sm:row-end-2 sm:col-start-2 sm:col-end-3"
         />
       </div>
     </form>

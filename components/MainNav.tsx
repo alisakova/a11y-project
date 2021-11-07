@@ -7,8 +7,12 @@ interface NavItemProps {
 
 const NavItem: FunctionComponent<NavItemProps> = ({ id, title }) => {
   return (
-    <li className="mr-10 last:mr-0 mb-2 text-blue-800 border-b border-current hover:border-transparent">
-      <a href={id}>{title}</a>
+    <li className="mr-10 last:mr-0 mb-2 text-blue-800">
+      <a href={id} className="group">
+        <span className="border-b border-current group-hover:border-transparent">
+          {title}
+        </span>
+      </a>
     </li>
   );
 };
@@ -38,7 +42,7 @@ const navItems = [
 
 export const MainNav = () => {
   return (
-    <nav className="mb-8" aria-label="Секции на странице">
+    <nav className="mb-8 container m-auto" aria-label="Секции на странице">
       <ul className="flex items-center flex-wrap text-lg">
         {navItems.map(({ id, title }) => (
           <NavItem key={id} id={id} title={title} />

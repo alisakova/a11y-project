@@ -1,7 +1,8 @@
 import classNames from "classnames";
 import { FunctionComponent, MouseEvent } from "react";
 
-const buttonClassName = "bg-mainPurple text-white px-5 py-3 rounded-8px";
+const buttonClassName =
+  "bg-mainPurple text-white px-5 py-3 rounded-8px hover:bg-[#300085] focus:outline-blue";
 
 interface Props {
   type?: "button" | "submit" | "reset";

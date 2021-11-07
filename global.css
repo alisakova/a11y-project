@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply h-full;
+}
+
 html.overflow {
   overflow-y: scroll;
   height: 100%;
@@ -9,6 +13,19 @@ html.overflow {
 html.overflow body {
   height: 100%;
   overflow: hidden;
+}
+
+body {
+  min-height: 100%;
+}
+
+body > div {
+  @apply flex flex-col;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
 }
 
 .container {
@@ -23,27 +40,4 @@ html.overflow body {
 
 .padding-bottom-16-9 {
   padding-bottom: 56.25%;
-}
-
-.swiper-container {
-  position: relative;
-}
-
-.swiper-button-prev, .swiper-button-next {
-  @apply absolute w-10 h-20 m-0 cursor-pointer z-10 items-center justify-center bg-white;
-  background-image: url("/slider-arrow.svg");
-  background-size: 80%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.swiper-button-prev {
-  left: 4px;
-}
-
-.swiper-button-next {
-  right: 4px;
-  transform: translateY(-50%) scaleX(-1);
 }

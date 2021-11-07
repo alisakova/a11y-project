@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Header } from "@/components/Header/Header";
 import { MainNav } from "@/components/MainNav";
-import { Events } from "@/components/Events/Events";
+import { Events } from "@/components/Events";
 import {
   tabs as eventsTabs,
   tabsContent as eventsTabsContent,
@@ -20,9 +20,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>
-          Государственный музей изобразительных искусств имени А.С.Пушкина
-        </title>
+        <title>Домашнее задание | Лисакова Настя</title>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="viewport"
@@ -30,28 +28,33 @@ const Home = () => {
         />
       </Head>
 
-      <SkipLink />
-      <Header />
-      <main className="container m-auto" id="content">
+      <div className="content">
+        <SkipLink />
+        <Header />
         <MainNav />
-        <Visitors />
-        <Events
-          title="Выставки и события"
-          sectionId="events"
-          tabsContent={eventsTabsContent}
-          tabs={eventsTabs}
-          tabsListAriaLabel="Расписание выставок и событий"
-        />
-        <Events
-          title="Музей"
-          sectionId="museum"
-          tabsContent={museumTabsContent}
-          tabs={museumTabs}
-          tabsListAriaLabel="Информация о музее"
-        />
-        <Video />
-        <Lectures />
-      </main>
+        <main className="container m-auto" id="content">
+          <h1 className="visually-hidden">
+            Государственный музей изобразительных искусств имени А.С. Пушкина
+          </h1>
+          <Visitors />
+          <Events
+            title="Выставки и события"
+            sectionId="events"
+            tabsContent={eventsTabsContent}
+            tabs={eventsTabs}
+            tabsListAriaLabel="Расписание выставок и событий"
+          />
+          <Events
+            title="Музей"
+            sectionId="museum"
+            tabsContent={museumTabsContent}
+            tabs={museumTabs}
+            tabsListAriaLabel="Информация о музее"
+          />
+          <Video />
+          <Lectures />
+        </main>
+      </div>
 
       <Footer />
     </>

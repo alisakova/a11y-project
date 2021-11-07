@@ -16,9 +16,6 @@ export const Modal: FunctionComponent<Props> = ({
   const modal = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (modal && modal.current) {
-      modal.current.focus();
-    }
     const html = document.querySelector("html");
     if (html) {
       html.classList.add("overflow");

@@ -34,7 +34,7 @@ export const Card: FunctionComponent<Props> = ({ card }) => {
       <img
         src={img}
         alt={imgAlt}
-        className="max-h-[20rem] min-h-[148px] mb-6 md:max-h-148px w-full object-cover"
+        className="max-h-[20rem] mb-6 h-[200px] w-full object-cover"
       />
       {titleLink ? (
         <a

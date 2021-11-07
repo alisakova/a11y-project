@@ -1,73 +1,12 @@
 import { Button } from "@/components/Button";
-import { ChangeEvent, FunctionComponent, MouseEvent, useState } from "react";
-import classNames from "classnames";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import { SectionTitle } from "@/components/SectionTitle";
-import { ErrorMessage } from "@/components/ErrorMessage";
-import { SuccessfulAlert } from "@/components/SuccessfulAlert";
-
-interface InputProps {
-  type: string;
-  id: string;
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-  errors: Record<string, string>;
-  setErrors: (value: Record<string, string>) => void;
-  required?: boolean;
-  autocomplete?: string;
-}
-
-const Input: FunctionComponent<InputProps> = ({
-  type = "text",
-  id,
-  label,
-  value,
-  onChange,
-  errors,
-  setErrors,
-  required = false,
-  autocomplete = "",
-}) => {
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    if (errors[event.target.id]) {
-      setErrors({
-        ...errors,
-        [event.target.id]: "",
-      });
-    }
-    const value = event.target?.value;
-    onChange && onChange(value);
-  };
-
-  return (
-    <>
-      <label htmlFor={id} className="block mb-2 text-lg flex items-center">
-        {label}
-      </label>
-      <input
-        onChange={handleInputChange}
-        value={value}
-        type={type}
-        id={id}
-        aria-describedby={`${id}-error`}
-        aria-invalid={!!errors[id]}
-        required={required}
-        autoComplete={autocomplete}
-        className={classNames(
-          "bg-inputBg border-lightPurple border h-16 w-full rounded-8px px-4 text-lg",
-          {
-            "border-red-600": errors?.[id],
-          }
-        )}
-      />
-      {errors?.[id] && (
-        <ErrorMessage errorId={`${id}-error`} errorText={errors[id]} />
-      )}
-    </>
-  );
-};
+import { Alert } from "@/components/Alert";
+import { Input } from "@/components/Input";
 
 export const Login = () => {
+  const loginInputRef = useRef<HTMLInputElement>(null);
+  const passwordInputRef = useRef<HTMLInputElement>(null);
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<{ login?: string; password?: string }>({
@@ -78,6 +17,11 @@ export const Login = () => {
 
   const handleSubmitClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    if (!login && loginInputRef?.current) {
+      loginInputRef.current.focus();
+    } else if (!password && passwordInputRef?.current) {
+      passwordInputRef.current.focus();
+    }
     if (!login || !password) {
       setErrors({
         ...(!login && { login: "Поле логин обязательно для заполнения" }),
@@ -90,14 +34,24 @@ export const Login = () => {
     }
   };
 
+  useEffect(() => {
+    loginInputRef?.current?.focus();
+  }, [loginInputRef]);
+
   return (
     <form>
       <SectionTitle title="Вход" />
       {isFormSent && (
-        <SuccessfulAlert text="Вы успешно залогинились! Можете закрыть модальное окно" />
+        <Alert variant="success">
+          Вы успешно залогинились! Можете закрыть модальное окно
+        </Alert>
+      )}
+      {(errors.login || errors.password) && (
+        <Alert variant="error">Форма не была отправлена</Alert>
       )}
       <div className="mb-10">
         <Input
+          ref={loginInputRef}
           type="text"
           id="login"
           label="Логин"
@@ -111,6 +65,7 @@ export const Login = () => {
       </div>
       <div className="mb-10">
         <Input
+          ref={passwordInputRef}
           type="password"
           id="password"
           label="Пароль"
